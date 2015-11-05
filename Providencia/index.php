@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        hola prueba de cambio 2
+        hola prueba de cambio
         <?php
         // put your code here
         ?>
