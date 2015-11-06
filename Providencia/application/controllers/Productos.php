@@ -1,11 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Productos extends CI_Controller {
-    public function index(){
+    function __construct() {
+        parent::__construct();
         $this->load->helper(array('form', 'url'));
-		//$this->load->view('welcome_message');
+    }
+    public function index(){
+        
+        $segmento = $this->uri->segment(3);
+        if($segmento){
             $this->load->view('header_view');
             $this->load->view('productos_view');
             $this->load->view('footer_view');
+            
+        }
+//        $this->load->view('header_view');
+//        $this->load->view('productos_view');
+//        $this->load->view('footer_view');
+    }
+    
+    public function productosDetalle(){
+        
     }
 }
