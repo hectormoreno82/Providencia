@@ -39,10 +39,10 @@
                     <li class="dropdown">
                         <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Categorias <span class="caret"></span></a>
                         <ul role="menu" class="dropdown-menu">
-                            <li><a href="<?= base_url(); ?>Productos?Id=1">Categoria 1</a></li>
-                            <li><a href="#">Categoria 2</a></li>
-                            <li><a href="#">Categoria 3</a></li>
-                            <li><a href="#">Categoria 4</a></li>
+                            <li><a href="<?= base_url(); ?>Productos/Categorias/1">Categoria 1</a></li>
+                            <li><a href="<?= base_url(); ?>Productos/Categorias/2">Categoria 2</a></li>
+                            <li><a href="<?= base_url(); ?>Productos/Categorias/3">Categoria 3</a></li>
+                            <li><a href="<?= base_url(); ?>Productos/Categorias/4">Categoria 4</a></li>
                         </ul>
                     </li>
                     <li>
