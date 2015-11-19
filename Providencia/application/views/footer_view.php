@@ -22,5 +22,20 @@
 <!--<script src="<?= base_url(); ?>js/inspinia.js"></script>-->
 <script src="<?= base_url(); ?>js/plugins/pace/pace.min.js"></script>
 
+<!-- slick carousel-->
+<script src="<?= base_url(); ?>js/plugins/slick/slick.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+
+        $('.product-images').slick({
+            dots: true
+        });
+
+    });
+
+</script>
+
 </body>
 </html>

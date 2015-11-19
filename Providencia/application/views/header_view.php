@@ -12,6 +12,10 @@
 
     <link href="<?= base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>font-awesome/css/font-awesome.css" rel="stylesheet">
+    
+    <link href="<?= base_url(); ?>css/plugins/slick/slick.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>css/plugins/slick/slick-theme.css" rel="stylesheet">
+    
     <link href="<?= base_url(); ?>css/animate.css" rel="stylesheet">
     <link href="<?= base_url(); ?>css/style.css" rel="stylesheet">
     <!-- Toastr style -->
