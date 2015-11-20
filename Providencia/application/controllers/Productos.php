@@ -11,16 +11,10 @@ class Productos extends CI_Controller {
     }
 
     public function index() {
-
         $data['productos'] = $this->productos_model->obtener_productos(0);
         $this->load->view('header_view');
         $this->load->view('productos_view', $data);
         $this->load->view('footer_view');
-
-
-//        $this->load->view('header_view');
-//        $this->load->view('productos_view');
-//        $this->load->view('footer_view');
     }
 
     public function categorias() {
@@ -34,8 +28,13 @@ class Productos extends CI_Controller {
     }
 
     public function detalle() {
+        $segmento = $this->uri->segment(3);
+        if ($segmento) {
+            $data['producto'] = $this->productos_model->obtener_productosId($segmento);
+            $data['imagenes'] = $this->productos_model->obtener_productosImagenes($segmento);
+        }
         $this->load->view('header_view');
-        $this->load->view('productosDetalle_view');
+        $this->load->view('productosDetalle_view', $data);
         $this->load->view('footer_view');
     }
 

@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="m-t text-righ">
 
-                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                    <a href="<?= base_url(); ?>Productos/Detalle/<?= $producto->idProductos; ?>" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
                                 </div>
                             </div>
                         </div>

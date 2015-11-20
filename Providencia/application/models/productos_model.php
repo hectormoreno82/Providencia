@@ -11,34 +11,51 @@ class Productos_model extends CI_Model {
     }
 
     function obtener_productos($idCategorias) {
-        $query = "SELECT * FROM productos as P 
-                    LEFT JOIN imagenes as I ON P.idProductos = I.idProductos
-                    INNER JOIN categorias as C ON P.idCategorias = C.idCategorias";
-        if ($idCategorias > 0) {
-            $query .= " WHERE P.idCategorias = " . $idCategorias;
-        }
-        $query .= " GROUP BY P.idProductos ORDER BY P.idProductos; ";
         
-        $datos = $this->db->query($query);
-        if ($datos->num_rows() > 0) {
-            return $datos;
+        $this->db->select('*');
+        $this->db->from('productos');
+        $this->db->join('imagenes','imagenes.idProductos = productos.idProductos', 'left');
+        $this->db->join('categorias','categorias.idCategorias = productos.idCategorias', 'inner');
+        if ($idCategorias > 0) {
+            $this->db->where('productos.idCategorias', $idCategorias);
+        }
+        $this->db->group_by("productos.idProductos"); 
+        $this->db->order_by("productos.idProductos", "asc"); 
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query;
         } else {
             return FALSE;
         }
     }
     
-//    function obtener_productos($idCategorias) {
-//        if ($idCategorias > 0) {
-//            $this->db->where('idCategorias', $idCategorias);
-//        }
-//        
-//        $query = $this->db->get('productos');
-//        if ($query->num_rows() > 0) {
-//            return $query;
-//        } else {
-//            return FALSE;
-//        }
-//    }
+    function obtener_productosId($idProductos) {
+        $this->db->select('*');
+        $this->db->from('productos');
+        $this->db->join('categorias','categorias.idCategorias = productos.idCategorias');
+        if ($idProductos > 0) {
+            $this->db->where('productos.idProductos', $idProductos);
+        }
+        
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
+    }
+    
+    function obtener_productosImagenes($idProductos){
+        $this->db->select('*');
+        $this->db->from('imagenes');
+        $this->db->where('idProductos', $idProductos);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
+    }
 
 }
 
