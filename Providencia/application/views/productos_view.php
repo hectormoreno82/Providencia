@@ -9,7 +9,7 @@
                     <div class="ibox">
                         <div class="ibox-content product-box">
 
-                            <div class="product-imitation">
+                    
                                 <?php
                                 if ($producto->Ruta == "") {
                                     echo "SIN IMAGEN";
@@ -19,8 +19,7 @@
                                 <?php
                                 }
                                 ?>
-                                
-                            </div>
+                        
                             <div class="product-desc">
                                 <span class="product-price">
                                     $<?= $producto->Precio; ?>
@@ -35,7 +34,7 @@
                                 </div>
                                 <div class="m-t text-righ">
 
-                                    <a href="<?= base_url(); ?>Productos/Detalle/<?= $producto->idProductos; ?>" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                    <a href="<?= base_url(); ?>Productos/Detalle/<?= $producto->idProductos; ?>" class="btn btn-xs btn-outline btn-primary">Ver más <i class="fa fa-long-arrow-right"></i> </a>
                                 </div>
                             </div>
                         </div>

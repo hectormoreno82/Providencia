@@ -16,9 +16,9 @@
                                     foreach ($imagenes->result() as $imagen) {
                                         ?>
                                         <div>
-                                            <div class="image-imitation">
+                                            
                                                 <img class="img-responsive" src="<?= base_url(); ?>imagenes/<?= $imagen->Ruta; ?>">
-                                            </div>
+                                            
                                         </div>
                                         <?php
                                     }
@@ -69,9 +69,9 @@
                 </div>
                 <div class="ibox-footer">
                     <span class="pull-right">
-                        Full stock - <i class="fa fa-clock-o"></i> 14.04.2016 10:04 pm
+                       Copyright Mako ©
                     </span>
-                    The generated Lorem Ipsum is therefore always free
+                   Todas las imágenes de los productos son propiedad de Mako 
                 </div>
             </div>
 

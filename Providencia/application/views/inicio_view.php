@@ -114,43 +114,6 @@
 
 
     <div class="row center-block">
-        <div class="col-lg-12 center-block">
-
-            <div class="ibox center-block">
-                <div class="ibox-content">             
-                    <div class="row ">
-                        <div class="col-md-4">
-                            <h2 class="text-center">Contacto Mako</h2>
-                            <h4><i class="fa fa-phone"></i> Tel.:</h4>
-                            <h4 class="text-center">(246) 464 0130 / (246) 118 1913</h4>
-                            <h4><i class="fa fa-map-marker"></i> Tienda: </h4>
-                            <h4 class="text-center">Ignacio Picazo No.48 Nte. <br/> Santa Ana Chiautempan, Tlaxcala.</h4>
-                            <h4><i class="fa fa-envelope"></i> Correo: </h4>
-                            <h4 class="text-center">ventas@chamarrasmako.com</h4>
-                        </div>
-                        <div class="col-md-8">
-                            <h2 class="text-center">¿Quiénes Somos?</h2>
-                            <h4 class="text-left">
-                                En nuestro sitio encontrarás chamarras, chalecos y cojines, ya que nuestra tienda ofrece la mejor calidad de ropa para mujeres, niños y cojines.
-                                <br/><br/>
-                                Mako trabaja con una innovadora selección de productos de distintos modelos y diseños, ofreciendo una variedad de productos para satisfacer todos los gustos.
-                                <br/><br/>
-                                En Mako esperamos que disfrutes la experiencia de compra nuestros productos y que encuentres aquellos que sean de tu agrado.
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <div class="row ">
         <div class="col-lg-12 center-block ">
 
             <div class="ibox center-block">
@@ -231,3 +194,5 @@
                </div>
   </div>
 </div>
+
+<br/><br/>

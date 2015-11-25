@@ -37,15 +37,15 @@
                 <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                     <i class="fa fa-reorder"></i>
                 </button>
-                <a href="<?= base_url(); ?>" class="navbar-brand">Providencia</a>
+                <a href="<?= base_url(); ?>" class="navbar-brand">Mako</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
                    <li class="active">
-                        <a aria-expanded="false" role="button" href="Inici.html"> Inicio</a>
+                        <a aria-expanded="false" role="button" href="<?= base_url(); ?>" > Inicio</a>
                     </li>
                     <li class="dropdown">
-                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Categorias <span class="caret"></span></a>
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Productos <span class="caret"></span></a>
                         <ul role="menu" class="dropdown-menu">
                             <li><a href="<?= base_url(); ?>Productos/Categorias/1">Chamaras</a></li>
                             <li><a href="<?= base_url(); ?>Productos/Categorias/2">Chalecos</a></li>
@@ -54,13 +54,10 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="#" >Registro<span class="nav-label"></span></a>
+                    </li>
+                    <li>
                         <a href="#" >Contacto<span class="nav-label"></span></a>
-<!--                        <ul role="menu" class="dropdown-menu">
-                            <li><a href="#">Menu item</a></li>
-                            <li><a href="#">Menu item</a></li>
-                            <li><a href="#">Menu item</a></li>
-                            <li><a href="#">Menu item</a></li>
-                        </ul>-->
                     </li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
