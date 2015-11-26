@@ -1,10 +1,17 @@
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <?php if ($productos) { ?>
-        <div class="row">
+        
             <?php
+            $i = 1;
+            $cantRenglon = 4;
             foreach ($productos->result() as $producto) {
+                if ($i % $cantRenglon == 0 || $i == 1) {
+                    echo '<div class="row">';
+                    
+                }
                 ?>
+            
                 <div class="col-md-3">
                     <div class="ibox">
                         <div class="ibox-content product-box">
@@ -40,7 +47,12 @@
                         </div>
                     </div>
                 </div>
-            <?php }
+            <?php 
+            if ($i % $cantRenglon == 0) {
+                echo '</div>';
+            }
+            $i++;
+                                }
             ?>
         </div>
         <?php

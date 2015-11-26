@@ -64,6 +64,10 @@
 <!-- slick carousel-->
 <script src="<?= base_url(); ?>js/plugins/slick/slick.min.js"></script>
 
+<!-- Jquery Validate -->
+<script src="<?= base_url(); ?>js/plugins/validate/jquery.validate.min.js"></script>
+
+<script src="<?= base_url(); ?>js/views/login.js"></script>
 <script>
     $(document).ready(function(){
 

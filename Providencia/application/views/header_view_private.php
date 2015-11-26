@@ -62,8 +62,11 @@
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <a href="<?= base_url(); ?>login">
-                            <i class="fa fa-sign-in"></i> Iniciar sesión
+                        <?= $usuario; ?>
+                    </li>
+                    <li>
+                        <a href="<?= base_url(); ?>welcome/logout">
+                            <i class="fa fa-sign-out"></i> Salir
                         </a>
                     </li>
                 </ul>

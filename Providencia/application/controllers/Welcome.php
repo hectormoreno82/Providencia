@@ -26,4 +26,10 @@ class Welcome extends CI_Controller {
             $this->load->view('inicio_view');
             $this->load->view('footer_view');
 	}
+        
+        function logout() {
+            $this->session->unset_userdata('logged_in');
+            //session_destroy();
+            redirect('welcome', 'refresh');
+        }
 }
