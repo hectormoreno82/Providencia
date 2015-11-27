@@ -16,9 +16,9 @@
                                     foreach ($imagenes->result() as $imagen) {
                                         ?>
                                         <div>
-                                            
-                                                <img class="img-responsive" src="<?= base_url(); ?>imagenes/<?= $imagen->Ruta; ?>">
-                                            
+
+                                            <img class="img-responsive" src="<?= base_url(); ?>imagenes/<?= $imagen->Ruta; ?>">
+
                                         </div>
                                         <?php
                                     }
@@ -28,50 +28,60 @@
 
                         </div>
                         <?php if ($producto) { ?>
-                                    
-                                
-                        <div class="col-md-7">
 
-                            <h2 class="font-bold m-b-xs">
-                                <?= $producto->result()[0]->Titulo; ?>
-                            </h2>
-                            <small><?= $producto->result()[0]->Subtitulo; ?></small>
-                            <div class="m-t-md">
-                                <h2 class="product-main-price">$<?= $producto->result()[0]->Precio; ?> <small class="text-muted">Sin I.V.A.</small> </h2>
-                            </div>
-                            <hr>
 
-                            <h4>Descripción del producto</h4>
+                            <div class="col-md-7">
 
-                            <div class="small text-muted">
-                                <?= $producto->result()[0]->Descripcion; ?>
-                            </div>
-                            <dl class="small m-t-md">
-                                <dt>Categoría</dt>
-                                <dd><?= $producto->result()[0]->Nombre; ?></dd>
-                            </dl>
-                            <hr>
+                                <h2 class="font-bold m-b-xs">
+                                    <?= $producto->result()[0]->Titulo; ?>
+                                </h2>
+                                <small><?= $producto->result()[0]->Subtitulo; ?></small>
+                                <div class="m-t-md">
+                                    <?php if (isset($usuario)) { ?>
+                                        <h2 class="product-main-price">$<?= $producto->result()[0]->Precio; ?> <small class="text-muted">Sin I.V.A.</small> </h2>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url();?>login"><button class="btn btn-primary btn-sm"><i class="fa fa-sign-in"></i> Inicia sesión para ver precio</button></a>
+                                    <?php }?>
 
-                            <div>
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Agregar al carrito</button>
-<!--                                    <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
-                                    <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>-->
                                 </div>
+                                <hr>
+
+                                <h4>Descripción del producto</h4>
+
+                                <div class="small text-muted">
+                                    <?= $producto->result()[0]->Descripcion; ?>
+                                </div>
+                                <dl class="small m-t-md">
+                                    <dt>Categoría</dt>
+                                    <dd><?= $producto->result()[0]->Nombre; ?></dd>
+                                </dl>
+                                <hr>
+
+                                <div>
+                                    <div class="btn-group">
+                                        <?php if (isset($usuario)) { ?>
+                                        <button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Agregar al carrito</button>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url();?>login"><button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Inicia sesión para agregar al carrito</button></a>
+                                    <?php }?>
+                                        
+    <!--                                    <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
+                                        <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>-->
+                                    </div>
+                                </div>
+
+
+
                             </div>
-
-
-
-                        </div>
                         <?php } ?>
                     </div>
 
                 </div>
                 <div class="ibox-footer">
                     <span class="pull-right">
-                       Copyright Mako ©
+                        Copyright Mako ©
                     </span>
-                   Todas las imágenes de los productos son propiedad de Mako 
+                    Todas las imágenes de los productos son propiedad de Mako 
                 </div>
             </div>
 

@@ -61,11 +61,24 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
+                    <?php if (isset($usuario)) { ?>
                     <li>
+                        <?= $usuario; ?>
+                    </li>
+<li>
+                        <a href="<?= base_url(); ?>welcome/logout">
+                            <i class="fa fa-sign-out"></i> Salir
+                        </a>
+                    </li>
+
+ <?php } else { ?>
+     <li>
                         <a href="<?= base_url(); ?>login">
                             <i class="fa fa-sign-in"></i> Iniciar sesión
                         </a>
                     </li>
+ <?php } ?>
+                    
                 </ul>
             </div>
         </nav>

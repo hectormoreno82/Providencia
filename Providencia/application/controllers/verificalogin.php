@@ -20,7 +20,8 @@ class VerificaLogin extends CI_Controller {
             foreach ($result as $row) {
                 $sess_array = array(
                     'idUsuarios' => $row->idUsuarios,
-                    'username' => $row->username
+                    'username' => $row->username,
+                    'tipo' => $row->tipo,
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
                 redirect('escritorio', 'refresh');
