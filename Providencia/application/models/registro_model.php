@@ -10,17 +10,17 @@ class Registro_model extends CI_Model {
         $this->load->database();
     }
 
-    function registrar_usuarios($idCategorias) {
-        
-        $this->db->select('*');
-        $this->db->from('productos');
-        $this->db->join('imagenes','imagenes.idProductos = productos.idProductos', 'left');
-        $this->db->join('categorias','categorias.idCategorias = productos.idCategorias', 'inner');
-        if ($idCategorias > 0) {
-            $this->db->where('productos.idCategorias', $idCategorias);
-        }
-        $this->db->group_by("productos.idProductos"); 
-        $this->db->order_by("productos.idProductos", "asc"); 
+    function insertar_usuario($data) {
+       $password=rand(1000000, 2000000000) +''+ rand(1000000, 2000000000);
+               $this->db->insert('usuarios',array('mail'=>$data['txtCorreo'],
+                                            'password'=>$password));
+               
+    }
+    
+    
+       function consultar_ultimoid() {
+        $this->db->select_max('idUsuarios');
+        $this->db->from('usuarios');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query;
@@ -29,8 +29,6 @@ class Registro_model extends CI_Model {
         }
     }
     
-
-
 }
 
 ?>
