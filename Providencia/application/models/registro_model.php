@@ -12,8 +12,9 @@ class Registro_model extends CI_Model {
 
     function insertar_usuario($data) {
        $password=rand(1000000, 2000000000) +''+ rand(1000000, 2000000000);
-               $this->db->insert('usuarios',array('mail'=>$data['txtCorreo'],
-                                            'password'=>$password));
+               $this->db->insert('usuarios',array('username'=>$data['txtCorreo'],
+                                                  'password'=>$password,
+                                                  'tipo'=>2));
                
     }
     
@@ -23,9 +24,22 @@ class Registro_model extends CI_Model {
         $this->db->from('usuarios');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
-            return $query;
+            return $query->row_array();
         } else {
             return FALSE;
+        }
+    }
+    
+    
+     function consultar_correo($data) {
+        $this->db->select('username');
+        $this->db->from('usuarios');
+        $this->db->where('username', $data);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        } else {
+            return array('username'=>"0");
         }
     }
     

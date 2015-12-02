@@ -22,6 +22,10 @@
     <link href="<?= base_url(); ?>css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+    <script src="<?= base_url(); ?>js/jquery-2.1.1.js"></script>
+    
+    <!-- Jquery Validate -->
+    <script src="<?= base_url(); ?>js/plugins/validate/jquery.validate.min.js"></script>
 </head>
 
 <body class="top-navigation">

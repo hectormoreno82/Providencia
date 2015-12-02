@@ -13,7 +13,7 @@ class Clientes_model extends CI_Model {
     
       function insertar_cliente($data) {
      
-               $this->db->insert('usuarios',array('idUsuarios'=>$data['idUsuarios'],
+               $this->db->insert('clientes',array('idUsuarios'=>$data['idUsuarios'],
                                             'Nombres'=>$data['txtNombre'],
                                             'ApPaterno'=>$data['txtApPaterno'],
                                             'ApMaterno'=>$data['txtApMaterno'],

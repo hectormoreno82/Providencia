@@ -52,7 +52,7 @@
 
 
 <!-- Mainly scripts -->
-<script src="<?= base_url(); ?>js/jquery-2.1.1.js"></script>
+
 <script src="<?= base_url(); ?>js/bootstrap.min.js"></script>
 <script src="<?= base_url(); ?>js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="<?= base_url(); ?>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
@@ -64,8 +64,6 @@
 <!-- slick carousel-->
 <script src="<?= base_url(); ?>js/plugins/slick/slick.min.js"></script>
 
-<!-- Jquery Validate -->
-<script src="<?= base_url(); ?>js/plugins/validate/jquery.validate.min.js"></script>
 
 <script src="<?= base_url(); ?>js/views/login.js"></script>
 <script>

@@ -73,63 +73,7 @@
         </div>
         </div>
     </div>
-    <div class="row">
-        <h1><label>Razones para registrarte</label></h1>
-
-        <div class="col-lg-4">
-            <div class="ibox float-e-margins">
-                <div class="ibox-content">
-                    <div class="row ">
-                        <div class="col-md-6 fondoRojo">
-                            <h5 class="text-center cursiva2">Compras</h5>
-                            <h4 class="text-center">Compra en línea desde la comodidad de tu casa y sin largas fílas.</h4>
-                            <br/>
-                        </div>
-                        <div class="col-md-6 center-block">
-                            <img src="<?= base_url(); ?>img/registro/compra-icon.png" alt="logo" class="img-responsive  center-block" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-lg-4">
-            <div class="ibox float-e-margins">
-                <div class="ibox-content">
-                    <div class="row ">
-                        <div class="col-md-6 fondoGris">
-                            <h5 class="text-center cursiva2">Pedidos</h5>
-                            <h4 class="text-center">Podrás accede a tu historial de pedidos y el estatus de tus envíos.</h4>
-                            <br/>
-                        </div>
-                        <div class="col-md-6 center-block">
-                            <img src="<?= base_url(); ?>img/registro/pedidos-icon.png"  alt="logo" class="img-responsive  center-block" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-lg-4">
-            <div class="ibox float-e-margins">
-                <div class="ibox-content">
-                    <div class="row ">
-                        <div class="col-md-6 fondoAmarillo">
-                            <h5 class="text-center cursiva2">Confort</h5>
-                            <h4 class="text-center">Recibe nuestros productos en la comodidad de tu casa.</h4>
-                            <br/>
-                        </div>
-                        <div class="col-md-6 center-block">
-                            <img src="<?= base_url(); ?>img/registro/recibe-icon.png" alt="logo" class="img-responsive  center-block" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    
 
     <br/><br/>
 </form>
