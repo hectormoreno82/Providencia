@@ -7,7 +7,7 @@ class Productos extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
-        $this->load->model('productos_model');
+        $this->load->model(array('productos_model','carrito_model'));
     }
 
     public function index() {
@@ -20,7 +20,8 @@ class Productos extends CI_Controller {
     public function categorias() {
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
-            $data['usuario'] = $session_data['username'];            
+            $data['usuario'] = $session_data['username'];
+            $data['cantidadCarrito'] = $this->carrito_model->obtener_cantidad_productos_carrito($session_data['idUsuarios']);            
         }
         
         $segmento = $this->uri->segment(3);
@@ -36,7 +37,8 @@ class Productos extends CI_Controller {
     public function detalle() {
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
-            $data['usuario'] = $session_data['username'];            
+            $data['usuario'] = $session_data['username'];       
+            $data['cantidadCarrito'] = $this->carrito_model->obtener_cantidad_productos_carrito($session_data['idUsuarios']);
         }
         $segmento = $this->uri->segment(3);
         if ($segmento) {

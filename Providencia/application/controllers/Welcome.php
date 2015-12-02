@@ -19,12 +19,18 @@ class Welcome extends CI_Controller {
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    public function index() {
+    function __construct() {
+        parent::__construct();
         $this->load->helper(array('form', 'url'));
+        $this->load->model(array('carrito_model'));
+    }
+    public function index() {
+        
         //$this->load->view('welcome_message');
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
-            $data['usuario'] = $session_data['username']; 
+            $data['usuario'] = $session_data['username'];
+            $data['cantidadCarrito'] = $this->carrito_model->obtener_cantidad_productos_carrito($session_data['idUsuarios']);
             $this->load->view('header_view',$data);
             $this->load->view('inicio_view');
             $this->load->view('footer_view');

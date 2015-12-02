@@ -60,7 +60,11 @@
                                 <div>
                                     <div class="btn-group">
                                         <?php if (isset($usuario)) { ?>
-                                        <button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Agregar al carrito</button>
+                                        <form role="form" id="frmLogin" action="<?= base_url(); ?>carrito/agregar_producto" method="post">
+                                            <input type="hidden" id="txtidProductos" name="txtidProductos" value="<?= $producto->result()[0]->idProductos; ?>">
+                                            <div class="form-group"><label>Cantidad</label> <input name="txtCantidad" id="txtCantidad" type="number" class="form-control" min="1"></div>
+                                            <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-cart-plus"></i> Agregar al carrito</button>
+                                        </form>
                                     <?php } else { ?>
                                         <a href="<?= base_url();?>login"><button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Inicia sesión para agregar al carrito</button></a>
                                     <?php }?>
