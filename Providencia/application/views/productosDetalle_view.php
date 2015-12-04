@@ -62,7 +62,7 @@
                                         <?php if (isset($usuario)) { ?>
                                         <form role="form" id="frmLogin" action="<?= base_url(); ?>carrito/agregar_producto" method="post">
                                             <input type="hidden" id="txtidProductos" name="txtidProductos" value="<?= $producto->result()[0]->idProductos; ?>">
-                                            <div class="form-group"><label>Cantidad</label> <input name="txtCantidad" id="txtCantidad" type="number" class="form-control" min="1"></div>
+                                            <div class="form-group"><label>Cantidad</label> <input name="txtCantidad" id="txtCantidad" type="number" class="form-control" min="1" required></div>
                                             <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-cart-plus"></i> Agregar al carrito</button>
                                         </form>
                                     <?php } else { ?>

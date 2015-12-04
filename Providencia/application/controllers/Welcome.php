@@ -30,6 +30,7 @@ class Welcome extends CI_Controller {
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
             $data['usuario'] = $session_data['username'];
+            $data['tipo'] = $session_data['tipo'];
             $data['cantidadCarrito'] = $this->carrito_model->obtener_cantidad_productos_carrito($session_data['idUsuarios']);
             $this->load->view('header_view',$data);
             $this->load->view('inicio_view');

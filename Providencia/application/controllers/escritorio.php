@@ -22,13 +22,15 @@ class Escritorio extends CI_Controller {
      */
     public function index() {
         $this->load->helper(array('form', 'url'));
-        //$this->load->model('visitas_portal_model');
+        $this->load->model('carrito_model');
         //$this->load->library('user_agent');
         //$data['visitas'] = $this->visitas_portal_model->obtener_explorador();
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
             $data['usuario'] = $session_data['username'];
-            $this->load->view('header_view_private', $data);
+            $data['tipo'] = $session_data['tipo'];
+            $data['cantidadCarrito'] = $this->carrito_model->obtener_cantidad_productos_carrito($session_data['idUsuarios']);
+            $this->load->view('header_view', $data);
             $this->load->view('escritorio/escritorio_view', $data);
             $this->load->view('footer_view');
         }

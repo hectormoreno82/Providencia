@@ -63,7 +63,28 @@
                                 <li>
                                     <a href="#" >Contacto<span class="nav-label"></span></a>
                                 </li>
+                                <?php
+                                if (isset($usuario) && isset($tipo)) {
+                                    if ($tipo == 2) {
+                                        ?>
+                                        <li>
+                                            <a href="#" >Mis pedidos<span class="nav-label"></span></a>
+                                        </li>
+                                        <?php } else {
+                                        ?>
+                                        <li class="dropdown">
+                                            <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Administración <span class="caret"></span></a>
+                                            <ul role="menu" class="dropdown-menu">
+                                                <li><a href="#">Clientes</a></li>
+                                                <li><a href="#">Pedidos</a></li>
+                                            </ul>
+                                        </li>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </ul>
+
                             <ul class="nav navbar-top-links navbar-right">
                                 <?php if (isset($usuario)) { ?>
 
@@ -71,11 +92,13 @@
                                         <?= $usuario; ?>
                                     </li>
                                     <li>
-                                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                        <a href="<?= base_url(); ?>carrito">
                                             <i class="fa fa-shopping-cart"></i>  <span class="label label-warning">
                                                 <?php
-                                                if (isset($cantidadCarrito)) {
+                                                if ($cantidadCarrito) {
                                                     echo $cantidadCarrito;
+                                                } else {
+                                                    echo '0';
                                                 }
                                                 ?></span>
                                         </a>
@@ -86,13 +109,13 @@
                                         </a>
                                     </li>
 
-<?php } else { ?>
+                                <?php } else { ?>
                                     <li>
                                         <a href="<?= base_url(); ?>login">
                                             <i class="fa fa-sign-in"></i> Iniciar sesión
                                         </a>
                                     </li>
-<?php } ?>
+                                <?php } ?>
 
                             </ul>
                         </div>
