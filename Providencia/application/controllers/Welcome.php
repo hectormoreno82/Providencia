@@ -52,5 +52,9 @@ class Welcome extends CI_Controller {
         //session_destroy();
         redirect('welcome', 'refresh');
     }
+    
+    function internalError(){
+        $this->load->view('500_view');
+    }
 
 }

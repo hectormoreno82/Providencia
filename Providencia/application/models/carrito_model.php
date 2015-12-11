@@ -54,7 +54,7 @@ class Carrito_model extends CI_Model {
     function insertar_productos_carrito($data) {
         return $this->db->insert('carritousuario', $data);
     }
-    
+
     function obtener_carrito_usuario_producto($idProductos, $idUsuarios) {
         $this->db->select('*');
         $this->db->from('carritousuario');
@@ -68,10 +68,20 @@ class Carrito_model extends CI_Model {
             return FALSE;
         }
     }
-    
-    function actualizar_carrito_usuario($data, $id){
+
+    function actualizar_carrito_usuario($data, $id) {
         $this->db->where('idCarritoUsuario', $id);
         $this->db->update('carritousuario', $data);
+        if ($this->db->affected_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    function borrar_carrito_usuario($idUsuarios) {
+        $this->db->where('idUsuarios', $idUsuarios);
+        $this->db->delete('carritousuario');
         if ($this->db->affected_rows() > 0) {
             return TRUE;
         } else {

@@ -57,7 +57,7 @@
                                         <tr>
                                             <td colspan="2">
                                                 <br>
-                                                <a href="#" class="btn btn-lg btn-primary center-block m-t-n-xs">Procesar pedido</a>
+                                                <a href="<?= base_url(); ?>pedidos/procesar_pedido" class="btn btn-lg btn-primary center-block m-t-n-xs">Procesar pedido</a>
                                             </td>
                                         </tr>
                                     </tbody>
