@@ -11,7 +11,17 @@ class Pedidos extends CI_Controller {
     }
 
     public function index() {
-        
+        if ($this->session->userdata('logged_in')) {
+            $session_data = $this->session->userdata('logged_in');
+            $data['usuario'] = $session_data['username'];
+            $data['tipo'] = $session_data['tipo'];
+            $data['cantidadCarrito'] = $this->carrito_model->obtener_cantidad_productos_carrito($session_data['idUsuarios']);
+            $data['pedidosUsuario'] = $this->pedidos_model->obtener_pedidos_usuario($session_data['idUsuarios']);
+        }
+
+        $this->load->view('header_view', $data);
+        $this->load->view('pedidos_usuarios_view', $data);
+        $this->load->view('footer_view');
     }
 
     public function procesar_pedido() {

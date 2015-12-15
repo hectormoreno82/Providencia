@@ -21,6 +21,12 @@
         <!-- Toastr style -->
         <link href="<?= base_url(); ?>css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
+        <!-- Data Tables -->
+        <link href="<?= base_url(); ?>css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="<?= base_url(); ?>css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
+        <link href="<?= base_url(); ?>css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+
+
         <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
         <script src="<?= base_url(); ?>js/jquery-2.1.1.js"></script>
 
@@ -68,9 +74,9 @@
                                     if ($tipo == 2) {
                                         ?>
                                         <li>
-                                            <a href="#" >Mis pedidos<span class="nav-label"></span></a>
+                                            <a href="<?= base_url(); ?>Pedidos" >Mis pedidos<span class="nav-label"></span></a>
                                         </li>
-                                        <?php } else {
+                                    <?php } else {
                                         ?>
                                         <li class="dropdown">
                                             <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Administración <span class="caret"></span></a>
