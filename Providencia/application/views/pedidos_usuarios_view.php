@@ -38,14 +38,11 @@
                                 <?= $pedido->FechaModificacion; ?>
                             </td>
                             <td>
-        <!--                                <span class="label label-primary">Pending</span>-->
-                                <?= $pedido->Estatus; ?>
+                                        <span class="<?= $pedido->Clase; ?>"><?= $pedido->Estatus; ?></span>
                             </td>
-                            <td class="text-right">
+                            <td class="text-center">
                                 <div class="btn-group">
-                                    <button class="btn-white btn btn-xs">View</button>
-                                    <button class="btn-white btn btn-xs">Edit</button>
-                                    <button class="btn-white btn btn-xs">Delete</button>
+                                    <button class="btn-white btn btn-xs">Ver</button>
                                 </div>
                             </td>
                         </tr>
