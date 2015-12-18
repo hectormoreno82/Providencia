@@ -43,35 +43,16 @@ class Pedidos_model extends CI_Model {
 //    }
     
     function obtener_pedidos_usuario($idUsuarios) {
-        //REVISAR ESTE QUERY YA QUE CUANDO HAY DOS O MAS PEDIDOS NO SALE BIEN LA CONSULTA
-//        SELECT 
-//                        Ped.idPedidos, ROUND(SUM(P.precio * PD.Cantidad),2) as Cantidad, COUNT(PD.idProductos) as CantidadProductos
-//                        ,(SELECT Fecha FROM pedidosestatus WHERE idEstatus = 1 AND idPedidos = Ped.idPedidos) as FechaPedido
-//                        ,PE.Fecha as FechaModificacion,E.Nombre as Estatus, E.idEstatus, E.Clase
-//                FROM pedidosdetalle as PD 
-//                INNER JOIN pedidos as Ped ON Ped.idPedidos = PD.idPedidos
-//                INNER JOIN productos as P ON P.idProductos = PD.idProductos
-//                INNER JOIN pedidosestatus as PE ON PE.idPedidos = PD.idPedidos
-//                INNER JOIN estatus as E ON E.idEstatus = PE.idEstatus
-//                WHERE PE.idPedidosEstatus = (SELECT idPedidosEstatus FROM pedidosestatus WHERE idPedidos = Ped.idPedidos ORDER BY idPedidosEstatus DESC LIMIT 1)
-//                AND Ped.idUsuarios = 1
-//                GROUP BY Ped.idPedidos
-//                
-//SELECT SUM(PD.Cantidad) as CantidadProductos, (PD.idPedidos) FROM pedidos as P 
-//INNER JOIN pedidosdetalle as PD ON PD.idPedidos = P.idPedidos
-//WHERE P.idUsuarios = 1 GROUP BY P.idPedidos
-        
-        $query = "SELECT 
-                        Ped.idPedidos, ROUND(SUM(P.precio * PD.Cantidad),2) as Cantidad, COUNT(PD.idProductos) as CantidadProductos
-                        ,(SELECT Fecha FROM pedidosestatus WHERE idEstatus = 1 AND idPedidos = Ped.idPedidos) as FechaPedido
-                        ,PE.Fecha as FechaModificacion,E.Nombre as Estatus, E.idEstatus, E.Clase
-                FROM pedidosdetalle as PD 
-                INNER JOIN pedidos as Ped ON Ped.idPedidos = PD.idPedidos
-                INNER JOIN productos as P ON P.idProductos = PD.idProductos
-                INNER JOIN pedidosestatus as PE ON PE.idPedidos = PD.idPedidos
-                INNER JOIN estatus as E ON E.idEstatus = PE.idEstatus
-                WHERE PE.idPedidosEstatus = (SELECT idPedidosEstatus FROM pedidosestatus WHERE idPedidos = Ped.idPedidos ORDER BY idPedidosEstatus DESC LIMIT 1)
-                AND Ped.idUsuarios =" . $idUsuarios;
+        $query = "SELECT PD.idPedidos, ROUND(SUM(Prod.precio * PD.Cantidad),2) as Cantidad, COUNT(PD.idProductos) as CantidadProductos
+                    ,(SELECT Fecha FROM pedidosestatus WHERE idEstatus = 1 AND idPedidos = P.idPedidos) as FechaPedido  
+                    ,PE.Fecha as FechaModificacion,E.Nombre as Estatus, E.idEstatus, E.Clase
+                    FROM pedidos as P 
+                    INNER JOIN pedidosdetalle as PD ON PD.idPedidos = P.idPedidos
+                    INNER JOIN productos as Prod ON Prod.idProductos = PD.idProductos
+                    INNER JOIN pedidosestatus as PE ON PE.idPedidos = PD.idPedidos
+                    INNER JOIN estatus as E ON E.idEstatus = PE.idEstatus
+                    WHERE PE.idPedidosEstatus = (SELECT idPedidosEstatus FROM pedidosestatus WHERE idPedidos = P.idPedidos ORDER BY idPedidosEstatus DESC LIMIT 1)
+                    AND P.idUsuarios = " .  $idUsuarios . " GROUP BY P.idPedidos";
  
         $datos = $this->db->query($query);
         if ($datos->num_rows() > 0) {
