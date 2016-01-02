@@ -61,6 +61,26 @@ class Pedidos_model extends CI_Model {
             return FALSE;
         }
     }
+    
+    function obtener_detalle_pedido($idPedidos) {
+        $query = "SELECT PD.idPedidos, ROUND(SUM(Prod.precio * PD.Cantidad),2) as Cantidad, COUNT(PD.idProductos) as CantidadProductos
+                    ,(SELECT Fecha FROM pedidosestatus WHERE idEstatus = 1 AND idPedidos = P.idPedidos) as FechaPedido  
+                    ,PE.Fecha as FechaModificacion,E.Nombre as Estatus, E.idEstatus, E.Clase
+                    FROM pedidos as P 
+                    INNER JOIN pedidosdetalle as PD ON PD.idPedidos = P.idPedidos
+                    INNER JOIN productos as Prod ON Prod.idProductos = PD.idProductos
+                    INNER JOIN pedidosestatus as PE ON PE.idPedidos = PD.idPedidos
+                    INNER JOIN estatus as E ON E.idEstatus = PE.idEstatus
+                    WHERE PE.idPedidosEstatus = (SELECT idPedidosEstatus FROM pedidosestatus WHERE idPedidos = P.idPedidos ORDER BY idPedidosEstatus DESC LIMIT 1)
+                    AND P.idPedidos = " .  $idPedidos . " GROUP BY P.idPedidos";
+ 
+        $datos = $this->db->query($query);
+        if ($datos->num_rows() > 0) {
+            return $datos;
+        } else {
+            return FALSE;
+        }
+    }
 
 }
 

@@ -42,7 +42,7 @@
                             </td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <button class="btn-white btn btn-xs" data-toggle="modal" data-target="#myModal2">Ver</button>
+                                    <button class="btn-white btn btn-xs detalle" data-toggle="modal" data-target="#myModal2" value="<?= $pedido->idPedidos; ?>">Ver</button>
                                 </div>
                             </td>
                         </tr>
@@ -61,8 +61,9 @@
                                     <div class="modal-content animated flipInY">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                            <h4 class="modal-title">Modal title</h4>
-                                            <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+                                            <h4 class="modal-title"><div id="idPedido"></div></h4>
+                                            <div id="estatus"></div>
+<!--                                            <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>-->
                                         </div>
                                         <div class="modal-body">
                                             <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown

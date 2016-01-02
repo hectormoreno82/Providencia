@@ -69,20 +69,13 @@ class Pedidos extends CI_Controller {
         }
     }
     
-    function obtener_detalle_pedido($idPedidos) {
-        $this->db->select('*, ROUND(P.Precio,2) as PrecioR, ROUND((P.Precio * CU.Cantidad),2) as Subtotal');
-        $this->db->from('carritousuario as CU');
-        $this->db->join('productos as P', 'P.idProductos = CU.idProductos', 'inner');
-        $this->db->join('imagenes as I', 'I.idProductos = CU.idProductos', 'inner');
-        $this->db->where('CU.idUsuarios', $idUsuario);
-        $this->db->group_by("CU.idProductos");
-        //$this->db->order_by("productos.idProductos", "asc"); 
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query;
-        } else {
-            return FALSE;
+    public function detalle(){
+        $segmento = $this->uri->segment(3);
+        if ($segmento) {
+            $data = $this->pedidos_model->obtener_detalle_pedido($segmento);
+            $this->output->set_content_type('application/json')->set_output(json_encode($data->result()[0]));
         }
+        
     }
 
 }
