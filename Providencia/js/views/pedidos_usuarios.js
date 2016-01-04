@@ -29,9 +29,28 @@ $(document).ready(function () {
     $('.detalle').click(function () {
         $( "#idPedido" ).empty();
         $( "#estatus" ).empty();
+        $('#divContenidoPedido').empty();
+        $('#divTotalPedido').empty();
+        var Total = 0;
         $.getJSON('pedidos/detalle/' + $(this).val(), function (data) {
-            $('#idPedido').append('Pedido No.'+ data.idPedidos);
-            $('#estatus').append('<span class="' + data.Clase + '">' + data.Estatus + '</span>');
+            $('#idPedido').append('Pedido No.'+ data[0].idPedidos);
+            $('#estatus').append('<span class="' + data[0].Clase + '">' + data[0].Nombre + '</span>');
+            $.each(data, function (k, v) {
+                console.log(v.Nombre);
+                $('#divContenidoPedido').append('<tr>'
+                                                +'<td>'
+                                                    +'<div>'
+                                                        +'<img class="col-lg-2 img-responsive" src="imagenes/' + v.Ruta + '">'
+                                                    +'</div>'
+                                                    +'<div>'+ v.Descripcion + '</div>'
+                                                +'</td>'
+                                                +'<td>' + v.Cantidad + '</td>'
+                                                +'<td><div class="text-danger">$' + v.PrecioR + '</div></td>'
+                                                +'<td><div class="text-danger">$' + v.Subtotal + '</div></td>'
+                                            +'</tr>');
+                Total = Total + parseFloat(v.Subtotal);
+            });
+            $('#divTotalPedido').append('$' + Total);
         });
     });
 });

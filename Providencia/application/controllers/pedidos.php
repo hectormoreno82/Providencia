@@ -8,6 +8,8 @@ class Pedidos extends CI_Controller {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
         $this->load->model(array('pedidos_model', 'carrito_model'));
+        $this->load->library("fpdf17/fpdf");
+        //$this->load->library("fpdf17/fpdf_protection");
     }
 
     public function index() {
@@ -73,9 +75,25 @@ class Pedidos extends CI_Controller {
         $segmento = $this->uri->segment(3);
         if ($segmento) {
             $data = $this->pedidos_model->obtener_detalle_pedido($segmento);
-            $this->output->set_content_type('application/json')->set_output(json_encode($data->result()[0]));
+            $this->output->set_content_type('application/json')->set_output(json_encode($data->result()));
         }
         
+    }
+    
+    public function imprimir(){
+        $segmento = $this->uri->segment(3);
+        if ($segmento) {
+            $data = $this->pedidos_model->obtener_detalle_pedido($segmento);
+            //$this->output->set_content_type('application/json')->set_output(json_encode($data->result()[0]));
+            
+            $pdf = new FPDF();
+            $pdf->AddPage();
+            $pdf->SetFont('Arial', 'B', 10);
+            $pdf->Cell(30, 5, 'DETALLE DEL PEDIDO No.'.$data->result()[0]->idPedidos, 0, 1);
+            $pdf->Output(); 
+            
+            
+        }
     }
 
 }
