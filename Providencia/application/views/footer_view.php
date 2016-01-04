@@ -51,28 +51,7 @@
 
 
 
-<!-- Mainly scripts -->
 
-<script src="<?= base_url(); ?>js/bootstrap.min.js"></script>
-<script src="<?= base_url(); ?>js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="<?= base_url(); ?>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-<!-- Data Tables -->
-<script src="<?= base_url(); ?>js/plugins/dataTables/jquery.dataTables.js"></script>
-<script src="<?= base_url(); ?>js/plugins/dataTables/dataTables.bootstrap.js"></script>
-<script src="<?= base_url(); ?>js/plugins/dataTables/dataTables.responsive.js"></script>
-<script src="<?= base_url(); ?>js/plugins/dataTables/dataTables.tableTools.min.js"></script>
-
-
-<!-- Custom and plugin javascript -->
-<!--<script src="<?= base_url(); ?>js/inspinia.js"></script>-->
-<script src="<?= base_url(); ?>js/plugins/pace/pace.min.js"></script>
-
-<!-- slick carousel-->
-<script src="<?= base_url(); ?>js/plugins/slick/slick.min.js"></script>
-
-
-<script src="<?= base_url(); ?>js/views/login.js"></script>
 <script>
     $(document).ready(function () {
 

@@ -98,6 +98,30 @@ class Pedidos_model extends CI_Model {
 //            return FALSE;
 //        }
 //    }
+    
+    function obtener_pedidos_admin() {
+        $query = "SELECT PD.idPedidos, ROUND(SUM(Prod.precio * PD.Cantidad),2) as Cantidad, COUNT(PD.idProductos) as CantidadProductos
+                    ,(SELECT Fecha FROM pedidosestatus WHERE idEstatus = 1 AND idPedidos = P.idPedidos) as FechaPedido  
+                    ,PE.Fecha as FechaModificacion,E.Nombre as Estatus, E.idEstatus, E.Clase, U.username
+                    ,CONCAT(C.ApPaterno, ' ', C.ApMaterno, ' ', C.Nombres) as Cliente, CONCAT(C.Municipio, ', ', Est.Nombre) as Lugar
+                    FROM pedidos as P 
+                    INNER JOIN pedidosdetalle as PD ON PD.idPedidos = P.idPedidos
+                    INNER JOIN productos as Prod ON Prod.idProductos = PD.idProductos
+                    INNER JOIN pedidosestatus as PE ON PE.idPedidos = PD.idPedidos
+                    INNER JOIN estatus as E ON E.idEstatus = PE.idEstatus
+					INNER JOIN usuarios as U ON U.idUsuarios = P.idUsuarios
+					INNER JOIN clientes as C ON C.idUsuarios = P.idUsuarios
+					INNER JOIN estados as Est ON Est.IdEstados = C.IdEstados
+                    WHERE PE.idPedidosEstatus = (SELECT idPedidosEstatus FROM pedidosestatus WHERE idPedidos = P.idPedidos ORDER BY idPedidosEstatus DESC LIMIT 1)
+                    GROUP BY P.idPedidos";
+        //die($query);
+        $datos = $this->db->query($query);
+        if ($datos->num_rows() > 0) {
+            return $datos;
+        } else {
+            return FALSE;
+        }
+    }
 
 }
 

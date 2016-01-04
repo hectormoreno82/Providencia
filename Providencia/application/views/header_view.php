@@ -30,6 +30,29 @@
         <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
         <script src="<?= base_url(); ?>js/jquery-2.1.1.js"></script>
 
+        <!-- Mainly scripts -->
+
+<script src="<?= base_url(); ?>js/bootstrap.min.js"></script>
+<script src="<?= base_url(); ?>js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="<?= base_url(); ?>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Data Tables -->
+<script src="<?= base_url(); ?>js/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="<?= base_url(); ?>js/plugins/dataTables/dataTables.bootstrap.js"></script>
+<script src="<?= base_url(); ?>js/plugins/dataTables/dataTables.responsive.js"></script>
+<script src="<?= base_url(); ?>js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+
+<!-- Custom and plugin javascript -->
+<!--<script src="<?= base_url(); ?>js/inspinia.js"></script>-->
+<script src="<?= base_url(); ?>js/plugins/pace/pace.min.js"></script>
+
+<!-- slick carousel-->
+<script src="<?= base_url(); ?>js/plugins/slick/slick.min.js"></script>
+
+
+<script src="<?= base_url(); ?>js/views/login.js"></script>
+
         <!-- Jquery Validate -->
         <script src="<?= base_url(); ?>js/plugins/validate/jquery.validate.min.js"></script>
     </head>
@@ -82,7 +105,7 @@
                                             <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Administración <span class="caret"></span></a>
                                             <ul role="menu" class="dropdown-menu">
                                                 <li><a href="#">Clientes</a></li>
-                                                <li><a href="#">Pedidos</a></li>
+                                                <li><a href="<?= base_url(); ?>Pedidos/pedidos_admin">Pedidos</a></li>
                                             </ul>
                                         </li>
                                         <?php

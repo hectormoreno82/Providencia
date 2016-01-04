@@ -95,5 +95,30 @@ class Pedidos extends CI_Controller {
             
         }
     }
+    
+    public function pedidos_admin() {
+        if ($this->session->userdata('logged_in')) {
+            $session_data = $this->session->userdata('logged_in');
+            $data['usuario'] = $session_data['username'];
+            $data['tipo'] = $session_data['tipo'];
+            $data['cantidadCarrito'] = $this->carrito_model->obtener_cantidad_productos_carrito($session_data['idUsuarios']);
+            $data['pedidosUsuario'] = $this->pedidos_model->obtener_pedidos_admin();
+        }
+
+        $this->load->view('header_view', $data);
+        $this->load->view('pedidos_admin_view', $data);
+        $this->load->view('footer_view');
+    }
+    
+    public function actualizar(){
+        if ($this->input->post('txtidPedidos')) {
+            $datosPedido = array(
+                'CostoEnvio' => $this->input->post('txtCosto')
+            );
+            //AQUI MANDAR LA ACTUALIZACION A LA TABLA DE PEDIDOS
+            
+            //POSTERIORMENTE REALIZAR EL INSERT EN LA TABLA DE ESTATUS DEL PEDIDO
+        }
+    }
 
 }

@@ -25,7 +25,7 @@ class VerificaLogin extends CI_Controller {
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
                 if ($row->tipo == 1) {
-                    redirect('escritorio', 'refresh');
+                    redirect('pedidos/pedidos_admin', 'refresh');
                 }
                 else{
                     redirect('pedidos', 'refresh');
