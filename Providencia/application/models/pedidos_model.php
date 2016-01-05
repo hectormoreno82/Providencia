@@ -122,6 +122,12 @@ class Pedidos_model extends CI_Model {
             return FALSE;
         }
     }
+    
+    function actualizar_pedido($idPedidos, $data){
+        $this->db->where('idPedidos', $idPedidos);
+        $this->db->update('pedidos', $data); 
+        return $this->db->affected_rows();
+    }
 
 }
 

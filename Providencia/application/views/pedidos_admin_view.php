@@ -137,7 +137,7 @@
                     <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
 
                         <div class="col-lg-10">
-                            <select class="form-control m-b" name="account" id="cbxEstatus" required>
+                            <select class="form-control m-b" name="cbxEstatus" id="cbxEstatus" required>
 
                             </select>
                         </div>

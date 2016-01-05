@@ -111,11 +111,29 @@ class Pedidos extends CI_Controller {
     }
     
     public function actualizar(){
+        $session_data = $this->session->userdata('logged_in');
         if ($this->input->post('txtidPedidos')) {
             $datosPedido = array(
                 'CostoEnvio' => $this->input->post('txtCosto')
             );
             //AQUI MANDAR LA ACTUALIZACION A LA TABLA DE PEDIDOS
+            $registrosAfectados = $this->pedidos_model->actualizar_pedido($this->input->post('txtidPedidos'), $datosPedido);
+            
+            if ($registrosAfectados >= 0) {
+                $datosEstatus = array(
+                    'idEstatus' => $this->input->post('cbxEstatus'),
+                    'idPedidos' => $this->input->post('txtidPedidos'),
+                    'idUsuarios' => $session_data['idUsuarios']
+                );
+                
+                $idPedidosEstatus = $this->pedidos_model->insertar_pedido_estatus($datosEstatus);
+                if ($idPedidosEstatus) {
+                    redirect('pedidos/pedidos_admin');
+                }
+            }
+ else {
+     //echo $this->db->last_query();
+ }
             
             //POSTERIORMENTE REALIZAR EL INSERT EN LA TABLA DE ESTATUS DEL PEDIDO
         }

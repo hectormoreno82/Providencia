@@ -68,6 +68,9 @@ $(document).ready(function () {
             $('#idPedidoFormulario').append('Pedido No.'+ data[0].idPedidos);
             $('#estatusFormulario').append('<span class="' + data[0].Clase + '">' + data[0].Nombre + '</span>');
             $('#txtidPedidos').val(data[0].idPedidos);
+            $("#cbxEstatus").val(data[0].idEstatus);
+            $("#txtCosto").val(data[0].CostoEnvio);
+            
 //            $.each(data, function (k, v) {
 //                console.log(v.Nombre);
 //                $('#divContenidoPedido').append('<tr>'
