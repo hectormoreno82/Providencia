@@ -17,7 +17,7 @@
                     <div class="col-md-8">
                         <h2 class="text-center">¿Quiénes Somos?</h2>
                         <h4 class="text-left">
-                            En nuestro sitio encontrarás chamarras, chalecos y cojines, ya que nuestra tienda ofrece la mejor calidad de ropa para mujeres, niños y cojines.
+                            En nuestro sitio encontrarás chamarrasas, chalecos y cojines, ya que nuestra tienda ofrece la mejor calidad de ropa para mujeres, niños y cojines.
                             <br/><br/>
                             Mako trabaja con una innovadora selección de productos de distintos modelos y diseños, ofreciendo una variedad de productos para satisfacer todos los gustos.
                             <br/><br/>
