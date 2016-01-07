@@ -83,7 +83,6 @@
                                         <li><a href="<?= base_url(); ?>Productos/Categorias/1">Chamaras</a></li>
                                         <li><a href="<?= base_url(); ?>Productos/Categorias/2">Chalecos</a></li>
                                         <li><a href="<?= base_url(); ?>Productos/Categorias/3">Cojines</a></li>
-                                        <li><a href="<?= base_url(); ?>Productos/Categorias/4">Categoria 4</a></li>
                                     </ul>
                                 </li>
                                 <li>
